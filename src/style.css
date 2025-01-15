@@ -49,20 +49,20 @@ body {
     justify-content: space-between;
   }
   
-  .weather-app-city {
+  .city {
     margin: 0;
     font-size: 38px;
     line-height: 48px;
   }
   
-  .weather-app-details {
+  .weather-app-data {
     font-size: 16px;
     color: rgba(39, 33, 66, 0.4);
     line-height: 24px;
     font-weight: 500;
   }
   
-  .weather-app-details strong {
+  .weather-date-and-details strong {
     color: #f65282;
   }
   
@@ -81,7 +81,7 @@ body {
     font-weight: bold;
   }
   
-  .weatehr-app-unit {
+  .weather-app-unit {
     margin-top: 6px;
     font-size: 28px;
   }
