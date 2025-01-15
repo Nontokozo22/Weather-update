@@ -1,21 +1,21 @@
-function refreshWeather(response) {
-    let temperatureElement = document.querySelector("#temperature");
+function updateWeather(response) {
+    let currentTemperature = document.querySelector("#current-weather-temperature");
     let temperature = response.data.temperature.current;
-    let cityElement = document.querySelector("#city");
-    let descriptionElement = document.querySelector("#description");
+    let city = document.querySelector("#city");
+    let descriptionElement = document.querySelector("#weather-condition");
     let humidityElement = document.querySelector("#humidity");
     let windSpeedElement = document.querySelector("#wind-speed");
     let timeElement = document.querySelector("#time");
     let date = new Date(response.data.time * 1000);
-    let iconElement = document.querySelector("#icon");
+    let icon = document.querySelector("#weatherIcon");
   
-    cityElement.innerHTML = response.data.city;
+    city.innerHTML = response.data.city;
     timeElement.innerHTML = formatDate(date);
     descriptionElement.innerHTML = response.data.condition.description;
     humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
     windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
-    temperatureElement.innerHTML = Math.round(temperature);
-    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+    currentTemperature.innerHTML = Math.round(temperature);
+    icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon" />`;
   }
   
   function formatDate(date) {
@@ -42,7 +42,7 @@ function refreshWeather(response) {
   function searchCity(city) {
     let apiKey = "b2a5adcct04b33178913oc335f405433";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-    axios.get(apiUrl).then(refreshWeather);
+    axios.get(apiUrl).then(updateWeather);
   }
   
   function handleSearchSubmit(event) {
@@ -55,4 +55,4 @@ function refreshWeather(response) {
   let searchFormElement = document.querySelector("#search-form");
   searchFormElement.addEventListener("submit", handleSearchSubmit);
   
-  
+  searchCity(Durban)
